@@ -135,7 +135,7 @@ For example:
 
 # Microk8s External Access
 
-Microk8s supports Istio and others as ingress controllers, [which can be enabled](https://microk8s.io/docs/addons) with ```microk8s enable <addon>```. For this deployment, however, we'll be exposing a service with NodePort. 
+Microk8s supports Nginx as ingress controller [which can be enabled](https://microk8s.io/docs/addons) with ```microk8s enable <addon>```. For this deployment, however, we'll be exposing a service with NodePort. 
 
 To test external access Microk8s, an "*hello-world*" deployment was for you and it is included in the *home* directory [(credit)](https://github.com/paulbouwer/hello-kubernetes). 
 

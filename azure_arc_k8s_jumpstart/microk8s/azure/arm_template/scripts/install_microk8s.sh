@@ -24,7 +24,7 @@ publicIp=$(curl icanhazip.com)
 sudo -u $adminUsername mkdir /home/${adminUsername}/.kube
 sudo snap install microk8s --classic
 sudo microk8s status --wait-ready
-sudo microk8s enable dashboard dns istio storage helm3
+sudo microk8s enable dns ingress
 sudo microk8s kubectl get all --all-namespaces
 
 # For further logins
@@ -55,10 +55,8 @@ kind: Service
 metadata:
   name: hello-kubernetes
 spec:
-  type: NodePort
   ports:
   - port: 80
-    nodePort: 30557
     targetPort: 8080
   selector:
     app: hello-kubernetes
@@ -82,6 +80,19 @@ spec:
         image: paulbouwer/hello-kubernetes:1.8
         ports:
         - containerPort: 8080
+---
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: http-ingress
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /
+        backend:
+          serviceName: hello-kubernetes
+          servicePort: 80
 EOT
 
 sudo cp hello-kubernetes.yaml /home/${adminUsername}/hello-kubernetes.yaml
