@@ -173,6 +173,15 @@ The only thing you need to do before executing the Terraform plan is to export t
 
 ![](../img/gke_terraform/31.png)
 
+# Optional - Day 2 Operations
+
+Now that your Kubernetes cluster is connected to Azure Arc, you might want to explore the following Day 2 scenarios:
+
+- [Deploy GitOps configurations and perform basic GitOps flow on GKE as an Azure Arc Connected Cluster](./gke_gitops_basic.md)
+- [Deploy GitOps configurations and perform Helm-based GitOps flow on GKE as an Azure Arc Connected Cluster](./gke_gitops_helm.md)
+- [Integrate Azure Monitor for Containers with GKE as an Azure Arc Connected Cluster](./gke_monitor.md)
+- [Apply GitOps configurations on GKE as an Azure Arc Connected Cluster using Azure Policy for Kubernetes](./gke_policy.md)
+
 # Delete the deployment
 
 In Azure, the most straightforward way is to delete the cluster or the Resource Group via the Azure Portal.
